@@ -5,9 +5,9 @@ require "minitest/reporters"
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
-  parallelize(workers: :number_of_processors)
   fixtures :all
-  include ApplicationHelper
 
-  # Add more helper methods to be used by all tests here...
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
